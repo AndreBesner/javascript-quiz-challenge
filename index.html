@@ -12,12 +12,13 @@
 <body>
 
     <!-- This is the top section that houses view scores and timer -->
+    <!-- This will never change -->
     <div id="header" class="header">
         <button id="end-game" class="end-game">
             End Game and View Scores
         </button>
-        <div id="time-left">
-            
+        <div id="time-left" class="time-left">
+            60
         </div>
     </div>
     <!-- End of top section -->
@@ -25,9 +26,28 @@
 
     <!-- Actual Quiz Section -->
     <div id="quiz-area" class="quiz-area">
-        <div class="quiz-box">
+
+        <!-- from here there will be seperate divs for each section of the quiz -->
+
+        <!-- START PAGE -->
+        <div class="quiz-box-start">
             <button id="start-button">start</button>
         </div>
+
+
+        <!-- QUESTIONS PAGE -->
+        <div class="quiz-box-questions">
+            Test
+        </div>
+
+
+        <!-- ENDING PAGE -->
+        <div class="quiz-box-end">
+            End
+            <button id="start-again" class="start-again">Start Over?</button>
+        </div>
+
+
     </div>
 
     <!-- End of Quiz Section -->
