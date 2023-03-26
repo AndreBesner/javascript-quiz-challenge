@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+}
+
+.end-game{
+    margin-right: auto;
+}
+
+.quiz-area{
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-box{
+    text-align: center;
+    width: 66%;
+    height: 66vh;
+    background-color: aqua;
+}
