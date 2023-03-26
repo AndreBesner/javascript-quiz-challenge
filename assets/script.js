@@ -1,3 +1,10 @@
+var userScore;
+
+var questionIndex;
+
+
+
+
 var overAllTime = 60 ; // this is the main value for the one minute quiz
 
 // Variable for end game view score button
