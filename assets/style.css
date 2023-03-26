@@ -14,12 +14,27 @@
     
 }
 
+/* overall holding div for each portion of quiz */
 .quiz-area{
     display: flex;
     justify-content: center;
 }
 
-.quiz-box{
+/* Individual box for each section of quiz to make hiding easier */
+.quiz-box-start{
+    text-align: center;
+    width: 66%;
+    height: 66vh;
+    background-color: aqua;
+}
+
+/*
+These are the divs for the questions portion
+And the ending portion
+they are hidden by default and appear on respective click events, 
+or when the test end */
+.quiz-box-questions, .quiz-box-end{
+    display: none;
     text-align: center;
     width: 66%;
     height: 66vh;
