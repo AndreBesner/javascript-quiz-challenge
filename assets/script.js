@@ -22,7 +22,8 @@ var quizBoxEnd = document.querySelector('.quiz-box-end');
 // variable for start button to initialize the test
 var startButton = document.querySelector('#start-button'); // this makes a variable for start button element
 
-
+//variable for start over button on quiz end div
+// var startAgain = document.querySelector('#start-again');
    
 
 /* This is the function to initialize the overall time for test (60 seconds)
@@ -58,7 +59,7 @@ function testStart(){
 // used an arrow function here for practice and it doesn't really needs it's own name 
 endGameViewScore.addEventListener('click', ()=>{
     testEnd(); //calls following test end function
-    clearInterval(timer); // stops timer with clearInterval()
+    clearInterval(myTimer); // stops timer with clearInterval()
 });
 
 function testEnd(){
@@ -67,3 +68,39 @@ function testEnd(){
     quizBoxEnd.style.display = 'block';
     clearInterval(myTimer);
 }
+
+// startAgain.addEventListener('click', startOver);
+// function startOver(){
+//     quizBoxEnd.setAttribute('hidden', true);
+//     testStart();
+// }
+
+
+
+
+
+
+
+
+/* this is the array for the question objects. Each question object has a questions, answers, and final answer.*/
+
+var questionArray = [
+    // arrays question
+    {
+        question : "How do you store multiple variables with JavaScript?",
+        answers : ["Ashtrays", "Arrays", "Astrays", "Afraids"],
+        answer : "Arrays"
+    },
+    // objects quesion
+    {
+        question : "How do you describe a thing with multiple characteristics, like these questions?",
+        answers : ["Orfects", "Ejects", "Elects", "Objects"],
+        answer : "Objects"
+    },
+    {
+        question : "What do you use to store singular pieces of information, like a number or name?",
+        answers : ["Lets", "Doofensmurtz", "Variables", "Terribles"],
+        answer : "Variables"
+    },
+
+]
