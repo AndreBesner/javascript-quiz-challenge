@@ -6,50 +6,23 @@
     display: flex;
 }
 
-.end-game{
-    margin-right: auto;
+div{
+    display: flex;
 }
 
-#start-again{
-    
-}
-
-.start-again{
-
-}
-
-
-#time-left{
-    
-}
-
-/* overall holding div for each portion of quiz */
-.quiz-area{
+#quiz-area{
     display: flex;
     justify-content: center;
 }
 
-/* Individual box for each section of quiz to make hiding easier */
-.quiz-box-start{
-    text-align: center;
-    width: 66%;
-    height: 66vh;
-    background-color: aqua;
+#quiz-box-start-page{
+    display: block;
 }
 
-/*
-These are the divs for the questions portion
-And the ending portion
-they are hidden by default and appear on respective click events, 
-or when the test end */
-.quiz-box-questions, .quiz-box-end{
+.quiz-box-questions-page{
     display: none;
-    text-align: center;
-    width: 66%;
-    height: 66vh;
-    background-color: aqua;
 }
 
-#start-button{
-
+#quiz-box-end{
+    display: none;
 }

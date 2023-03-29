@@ -14,9 +14,6 @@
     <!-- This is the top section that houses view scores and timer -->
     <!-- This will never change -->
     <div id="header" class="header">
-        <button id="end-game" class="end-game">
-            End Game and View Scores
-        </button>
         <div id="time-left" class="time-left">
             60
         </div>
@@ -30,26 +27,39 @@
         <!-- from here there will be seperate divs for each section of the quiz -->
 
         <!-- START PAGE -->
-        <div class="quiz-box-start">
+        <div id = "quiz-box-start-page" class="quiz-box-startpage">
+            <p>This is a simple Quiz on JavaScript. 
+                <br>Each Question you answer correct, you recieve a point.
+                <br>The clock is ticking. 
+                <br>You will be given the option to save your score at the end of the test.
+            </p>
             <button id="start-button">start</button>
         </div>
 
 
         <!-- QUESTIONS PAGE -->
-        <div class="quiz-box-questions">
-            Test
+        <div id = "quiz-box-questions-page" class="quiz-box-questions-page">
+            <div>
+                <h3 id = "display-question" class = "display-question">
+                    Question Text: 
+                </h3>
+                <ul id = "display-answers" class = "display-answers">
+                    Answer buttons <br>
+                    Answer buttons
+                </ul>
+            </div> 
         </div>
 
 
         <!-- ENDING PAGE -->
-        <div class="quiz-box-end">
-            End
+        <div id="quiz-box-end" class = "quiz-box-end">
+            End of quiz page
         </div>
 
 
     </div>
 
     <!-- End of Quiz Section -->
+    <script src="./assets/script.js"></script>
 </body>
-<script src="./assets/script.js"></script>
 </html>
