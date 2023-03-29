@@ -85,6 +85,18 @@ function showResponses(){
         var response = responses[i];
         var makeButton = document.createElement("button");
         makeButton.textContent = response;
+        makeButton.addEventListener("click", function(e){
+            console.log(e.target.innerText);
+            checkAnswer(e);
+        });
         displayAnswers.appendChild(makeButton);
-    }
+        
+       
+}
+}
+function checkAnswer(userSelected){
+    var correctAnswerIndex = questionArray[currentQuestionIndex].answer
+    var correctAnswer = questionArray[currentQuestionIndex].answers[correctAnswerIndex];
+    console.log(correctAnswer);
+    console.log(correctAnswerIndex);
 }
