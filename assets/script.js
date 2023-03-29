@@ -1,26 +1,32 @@
 
 // /* this is the array for the question objects. Each question object has a questions, answers, and final answer.*/
-// var questionArray = [
-//     // arrays question
-//     {
-//         question : "How do you store multiple variables with JavaScript?",
-//         answers : ["Ashtrays", "Arrays", "Astrays", "Afraids"],
-//         answer : "Arrays"
-//     },
-//     // objects quesion
-//     {
-//         question : "How do you describe a thing with multiple characteristics, like these questions?",
-//         answers : ["Orfects", "Ejects", "Elects", "Objects"],
-//         answer : "Objects"
-//     },
-//     // variables question
-//     {
-//         question : "What do you use to store singular pieces of information, like a number or name?",
-//         answers : ["Lets", "Doofensmurtz", "Variables", "Terribles"],
-//         answer : "Variables"
-//     },
+var questionArray = [
+    // arrays question
+    {
+        question : "How do you store multiple variables with JavaScript?",
+        answers : ["Ashtrays", "Arrays", "Astrays", "Afraids"],
+        answer : 1,
+    },
+    // objects quesion
+    {
+        question : "How do you describe a thing with multiple characteristics, like these questions?",
+        answers : ["Orfects", "Ejects", "Elects", "Objects"],
+        answer : 3, 
+    },
+    // variables question
+    {
+        question : "What do you use to store singular pieces of information, like a number or name?",
+        answers : ["Lets", "Doofensmurtz", "Variables", "Terribles"],
+        answer : 2, 
+    },
+     // naming conventions
+    {
+        question : "How do you type a good variable name?",
+        answers : ["camelCase", "ALLCAPS", "allloweralways", "lIkEtHiS"],
+        answer : 0, 
+    },
 
-// ]
+];
    
 
 // /* This is the function to initialize the overall time for test (60 seconds)
@@ -47,9 +53,7 @@
 
 
 var startButton = document.querySelector("#start-button");
-
 startButton.addEventListener('click', startGame);
-
 function startGame(){
     timeDecrease();
     showQuestions();
@@ -66,7 +70,21 @@ function timeDecrease(){
 
 var quizBoxStartPage = document.querySelector("#quiz-box-start-page");
 var quizBoxQuestionsPage = document.querySelector("#quiz-box-questions-page");
+var displayQuestion = document.querySelector("#display-question");
+var displayAnswers = document.querySelector("#display-answers");
+var currentQuestionIndex = 0 ;
 function showQuestions(){
     quizBoxStartPage.style.display = "none";
     quizBoxQuestionsPage.style.display = "block";
+    displayQuestion.innerHTML = questionArray[currentQuestionIndex].question;
+    showResponses();
+}
+function showResponses(){
+    var responses = questionArray[currentQuestionIndex].answers;
+    for(var i = 0 ; i < responses.length ; i++){
+        var response = responses[i];
+        var makeButton = document.createElement("button");
+        makeButton.textContent = response;
+        displayAnswers.appendChild(makeButton);
+    }
 }

@@ -6,6 +6,10 @@
     display: flex;
 }
 
+h1{
+    margin-right: auto;
+}
+
 div{
     display: flex;
 }
@@ -24,5 +28,9 @@ div{
 }
 
 #quiz-box-end{
+    display: none;
+}
+
+#show-scores-page{
     display: none;
 }
