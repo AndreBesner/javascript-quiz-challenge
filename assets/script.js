@@ -127,7 +127,7 @@ var savedNames = JSON.parse(localStorage.getItem("localInitials"));
 //     li.textContent = savedNames.value;
 //     highScoreList.appendChild(li);
 // });
-function showHighScores(){
+function showHighScores(savedNames){
     quizBoxEndPage.style.display = "none";
     showScoresPage.style.display = "block";
     for(var i = 0 ; i < savedNames.length ; i++){
