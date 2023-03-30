@@ -108,7 +108,8 @@ function endGame(){
 var userInput = document.querySelector("#user-initials");
 userInput.addEventListener("submit", (e)=>{
     e.preventDefault();                                                     //TO BE REMOVED 
-    var userInitials = document.querySelector("#initials").value;
+    var userInitialsRaw = document.querySelector("#initials").value;
+    var userInitials = userInitialsRaw + ", whose score was: " + userScore
     console.log(userInitials);
     var localInitials = JSON.parse(localStorage.getItem("localInitials")) || [] ;
     localInitials.push(userInitials);
@@ -116,10 +117,23 @@ userInput.addEventListener("submit", (e)=>{
     for(var i = 0 ; i < localInitials.length ; i++){
         console.log(localInitials[i]);
     }
-    showHighScores();
+    showHighScores(localInitials);
 })
 var showScoresPage = document.querySelector("#show-scores-page");
+var highScoreList = document.querySelector("#highscore-list");
+var savedNames = JSON.parse(localStorage.getItem("localInitials"));
+// savedNames.array.forEach(element => {
+//     var li = document.createElement('li');
+//     li.textContent = savedNames.value;
+//     highScoreList.appendChild(li);
+// });
 function showHighScores(){
     quizBoxEndPage.style.display = "none";
     showScoresPage.style.display = "block";
+    for(var i = 0 ; i < savedNames.length ; i++){
+        var itemToList = savedNames[i];
+        var makeList = document.createElement('li');
+        makeList.innerHTML = itemToList;
+        highScoreList.appendChild(makeList);
+    }
 }
