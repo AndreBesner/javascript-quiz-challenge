@@ -5,7 +5,7 @@
 .header{
     display: flex;
 }
-
+/* pushes timer to far right of title bar */
 h1{
     margin-right: auto;
 }
@@ -18,19 +18,19 @@ div{
     display: flex;
     justify-content: center;
 }
-
+/* visible until user starts quiz */
 #quiz-box-start-page{
     display: block;
 }
-
+/* hidden until needed then hidden again */
 .quiz-box-questions-page{
     display: none;
 }
-
+/* hidden until needed then hidden again */
 #quiz-box-end{
     display: none;
 }
-
+/* hidden until needed then hidden again */
 #show-scores-page{
     display: none;
 }

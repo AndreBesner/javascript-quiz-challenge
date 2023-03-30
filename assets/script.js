@@ -41,7 +41,7 @@ function startGame(){
 // Called by startGame() 
 var userTimeRemaining = 60 ;
 function timeDecrease(){
-    timer = setInterval(()=>{
+    timer = setInterval(()=>{ //arrow functions are tough to learn but a cool concept
         userTimeRemaining -= 1 ;
         document.querySelector("#time-left").innerHTML = userTimeRemaining ;
         console.log(userTimeRemaining);
@@ -89,6 +89,9 @@ function showResponses(){
 }
 
 // This logic determines whether to add to user score, or to subtract from the time remaining
+// This is called whenever the user selects an answer button
+// It pulls the innertext from the button in prev function and hands it to this one. Using the known true answer index we can compare the
+// button text to the array text at the correct index.
 var userScore = 0;
 function checkAnswer(userSelected){
     var correctAnswerIndex = questionArray[currentQuestionIndex].answer
