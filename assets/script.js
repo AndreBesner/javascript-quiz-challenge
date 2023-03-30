@@ -39,13 +39,14 @@ function startGame(){
 // This function sets the main time for quiz (1 minute) and makes it globally accessable for when we gotta slash time
 // Decreases one unit every second
 // Called by startGame() 
+// If questions are added, please increase "|| currentQuestionIndex == X" where X is total # of question objects
 var userTimeRemaining = 60 ;
 function timeDecrease(){
-    timer = setInterval(()=>{ //arrow functions are tough to learn but a cool concept
+    timer = setInterval(()=>{ 
         userTimeRemaining -= 1 ;
         document.querySelector("#time-left").innerHTML = userTimeRemaining ;
         console.log(userTimeRemaining);
-        if(userTimeRemaining <= 0 || currentQuestionIndex == 4){
+        if(userTimeRemaining <= 0 || currentQuestionIndex == 4){ // I understand this is a hamfisted solution, but I ran out of time making it more elegant, see above note
             clearInterval(timer);
             endGame();
         }
@@ -61,7 +62,7 @@ var displayQuestion = document.querySelector("#display-question");
 var displayAnswers = document.querySelector("#display-answers");
 var currentQuestionIndex = 0 ;
 function showQuestions(){
-    if(currentQuestionIndex == 4){
+    if(currentQuestionIndex == 4){ // see notes for timeDecrease() to understand why I did this
         return;
     }        
         quizBoxStartPage.style.display = "none";
@@ -74,7 +75,7 @@ function showQuestions(){
 // It makes clickable buttons for each answer, once a button is clicked
 // It will determine whether it was right or wrong using the inner button text compared
 // to the text of the known index of the correct answer.
-// This code was built on the foundation provided by Adam Nyx, a bootcamp instructor.
+// This code was built on the foundation provided by Adam Nyx, our bootcamp instructor.
 function showResponses(){
     var responses = questionArray[currentQuestionIndex].answers;
     for(var i = 0 ; i < responses.length ; i++){
@@ -122,9 +123,7 @@ function endGame(){
 // The user initials are read from the form
 // The input from the from is spliced with the known user score
 // There is a variable established for the local storage called localInitials
-// A check is initially run to see if it exists, and if so to get it ready, if there is no localInitials found it creates
-// a new array
-// 
+// A check is initially run to see if it exists, and if so to get it ready, if there is no localInitials found it creates new array
 var userInput = document.querySelector("#user-initials");
 userInput.addEventListener("submit", (e)=>{
     e.preventDefault();                                                    

@@ -1,23 +1,44 @@
 *{
     box-sizing: border-box;
+    background-color: #202124;
+    color: #E3E3E3;
 }
 
 .header{
     display: flex;
+    padding: .5em;
+    margin-bottom: 10px;
 }
 /* pushes timer to far right of title bar */
 h1{
     margin-right: auto;
+    font-size: 1.75em;
+}
+
+#time-left{
+    font-size: 1.5em;
+    margin-right: 1.0em;
 }
 
 div{
     display: flex;
+    font-size: 1.25em;
 }
 
 #quiz-area{
     display: flex;
     justify-content: center;
 }
+
+button{
+    background-color: #BB86FC;
+    font-size: 1.5rem;
+    color: #202124;
+    padding: 5px;
+    margin: 5px;
+    translate: -5px;
+}
+
 /* visible until user starts quiz */
 #quiz-box-start-page{
     display: block;
@@ -25,6 +46,11 @@ div{
 /* hidden until needed then hidden again */
 .quiz-box-questions-page{
     display: none;
+    align-items: center;
+}
+#display-question{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 /* hidden until needed then hidden again */
 #quiz-box-end{
