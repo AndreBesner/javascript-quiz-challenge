@@ -105,3 +105,21 @@ function endGame(){
     quizBoxEndPage.style.display = "block";
     displayUserScore.textContent = "Your score was: " + userScore;
 }
+var userInput = document.querySelector("#user-initials");
+userInput.addEventListener("submit", (e)=>{
+    e.preventDefault();                                                     //TO BE REMOVED 
+    var userInitials = document.querySelector("#initials").value;
+    console.log(userInitials);
+    var localInitials = JSON.parse(localStorage.getItem("localInitials")) || [] ;
+    localInitials.push(userInitials);
+    localStorage.setItem("localInitials", JSON.stringify(localInitials));
+    for(var i = 0 ; i < localInitials.length ; i++){
+        console.log(localInitials[i]);
+    }
+    showHighScores();
+})
+var showScoresPage = document.querySelector("#show-scores-page");
+function showHighScores(){
+    quizBoxEndPage.style.display = "none";
+    showScoresPage.style.display = "block";
+}
