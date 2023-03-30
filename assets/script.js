@@ -1,4 +1,3 @@
-
 // /* this is the array for the question objects. Each question object has a questions, answers, and final answer.*/
 var questionArray = [
     // arrays question
@@ -45,7 +44,7 @@ function timeDecrease(){
         userTimeRemaining -= 1 ;
         document.querySelector("#time-left").innerHTML = userTimeRemaining ;
         console.log(userTimeRemaining);
-        if(userTimeRemaining <= 0 || currentQuestionIndex > questionArray.length){
+        if(userTimeRemaining <= 0 || currentQuestionIndex == 4){
             clearInterval(timer);
             endGame();
         }
@@ -58,7 +57,6 @@ var displayAnswers = document.querySelector("#display-answers");
 var currentQuestionIndex = 0 ;
 function showQuestions(){
     if(currentQuestionIndex == 4){
-        endGame();
         return;
     }        
         quizBoxStartPage.style.display = "none";
@@ -77,8 +75,6 @@ function showResponses(){
             checkAnswer(e.target.innerText);
         });
         displayAnswers.appendChild(makeButton);
-        
-       
     }
 }
 var userScore = 0;
@@ -100,11 +96,13 @@ function checkAnswer(userSelected){
     displayQuestion.innerHTML = "";
     displayAnswers.innerHTML = "";
     currentQuestionIndex++;
-    
     showQuestions();
-
 }
-
+var quizBoxEndPage = document.querySelector("#quiz-box-end");
+var displayUserScore = document.querySelector("#display-user-score")
 function endGame(){
-
+    console.log("Your score was: " + userScore);
+    quizBoxQuestionsPage.style.display = "none";
+    quizBoxEndPage.style.display = "block";
+    displayUserScore.textContent = "Your score was: " + userScore;
 }
