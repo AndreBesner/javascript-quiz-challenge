@@ -1,4 +1,5 @@
-// /* this is the array for the question objects. Each question object has a questions, answers, and final answer.*/
+/* this is the array for the question objects. Each question object has a question, answers, and final answer element. The final answer is 
+merely the index for the proper reply in the "answers" array element */
 var questionArray = [
     // arrays question
     {
@@ -26,17 +27,18 @@ var questionArray = [
     },
 
 ];
-   
 
-
-
-
+// This function actually starts the quiz when the user clicks start button
 var startButton = document.querySelector("#start-button");
 startButton.addEventListener('click', startGame);
 function startGame(){
     timeDecrease();
     showQuestions();
 }
+
+// This function sets the main time for quiz (1 minute) and makes it globally accessable for when we gotta slash time
+// Decreases one unit every second
+// Called by startGame() 
 var userTimeRemaining = 60 ;
 function timeDecrease(){
     timer = setInterval(()=>{
@@ -49,6 +51,10 @@ function timeDecrease(){
         }
     }, 1000)
 }
+
+// This function is called with the previous startGame()
+// This checks we havent reached the last questions, if so will exit
+// It then prints the question from the questionArray
 var quizBoxStartPage = document.querySelector("#quiz-box-start-page");
 var quizBoxQuestionsPage = document.querySelector("#quiz-box-questions-page");
 var displayQuestion = document.querySelector("#display-question");
@@ -63,6 +69,12 @@ function showQuestions(){
         displayQuestion.innerHTML = questionArray[currentQuestionIndex].question;
         showResponses();
 }
+
+// This function is called by showQuestions()
+// It makes clickable buttons for each answer, once a button is clicked
+// It will determine whether it was right or wrong using the inner button text compared
+// to the text of the known index of the correct answer.
+// This code was built on the foundation provided by Adam Nyx, a bootcamp instructor.
 function showResponses(){
     var responses = questionArray[currentQuestionIndex].answers;
     for(var i = 0 ; i < responses.length ; i++){
@@ -70,33 +82,31 @@ function showResponses(){
         var makeButton = document.createElement("button");
         makeButton.textContent = response;
         makeButton.addEventListener("click", function(e){
-            // console.log(e.target.innerText);
             checkAnswer(e.target.innerText);
         });
         displayAnswers.appendChild(makeButton);
     }
 }
+
+// This logic determines whether to add to user score, or to subtract from the time remaining
 var userScore = 0;
 function checkAnswer(userSelected){
     var correctAnswerIndex = questionArray[currentQuestionIndex].answer
     var correctAnswer = questionArray[currentQuestionIndex].answers[correctAnswerIndex];
-    // console.log(correctAnswer);
-    // console.log(correctAnswerIndex);
     if(userSelected == correctAnswer){
-        console.log("wow it works");
         userScore++;
-        // console.log(userScore);
     }
     else{
-        console.log("wrong");
         userTimeRemaining -= 5 ;
-        console.log(userTimeRemaining);
     }
-    displayQuestion.innerHTML = "";
+    displayQuestion.innerHTML = ""; // this clears the prior values
     displayAnswers.innerHTML = "";
     currentQuestionIndex++;
     showQuestions();
 }
+
+// This function runs when the user time is out, or they have completed all questions
+// It merely displays their score to the page and asks for the input of initials
 var quizBoxEndPage = document.querySelector("#quiz-box-end");
 var displayUserScore = document.querySelector("#display-user-score")
 function endGame(){
@@ -105,28 +115,30 @@ function endGame(){
     quizBoxEndPage.style.display = "block";
     displayUserScore.textContent = "Your score was: " + userScore;
 }
+
+// The user initials are read from the form
+// The input from the from is spliced with the known user score
+// There is a variable established for the local storage called localInitials
+// A check is initially run to see if it exists, and if so to get it ready, if there is no localInitials found it creates
+// a new array
+// 
 var userInput = document.querySelector("#user-initials");
 userInput.addEventListener("submit", (e)=>{
-    e.preventDefault();                                                     //TO BE REMOVED 
+    e.preventDefault();                                                    
     var userInitialsRaw = document.querySelector("#initials").value;
     var userInitials = userInitialsRaw + ", whose score was: " + userScore
-    console.log(userInitials);
     var localInitials = JSON.parse(localStorage.getItem("localInitials")) || [] ;
     localInitials.push(userInitials);
     localStorage.setItem("localInitials", JSON.stringify(localInitials));
-    for(var i = 0 ; i < localInitials.length ; i++){
-        console.log(localInitials[i]);
-    }
     showHighScores(localInitials);
 })
+
+// This function prints all the user entered highscores to the final page of the website
+// It parses the local storage for existing saved names, then creates list items in existing unordered list element,
+// and attaches the initials and score to each list item as a new line.
 var showScoresPage = document.querySelector("#show-scores-page");
 var highScoreList = document.querySelector("#highscore-list");
 var savedNames = JSON.parse(localStorage.getItem("localInitials"));
-// savedNames.array.forEach(element => {
-//     var li = document.createElement('li');
-//     li.textContent = savedNames.value;
-//     highScoreList.appendChild(li);
-// });
 function showHighScores(savedNames){
     quizBoxEndPage.style.display = "none";
     showScoresPage.style.display = "block";
