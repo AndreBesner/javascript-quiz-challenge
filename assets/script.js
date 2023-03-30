@@ -37,7 +37,6 @@ function startGame(){
     timeDecrease();
     showQuestions();
 }
-
 var userTimeRemaining = 60 ;
 function timeDecrease(){
     timer = setInterval(()=>{
