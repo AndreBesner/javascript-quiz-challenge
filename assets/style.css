@@ -1,55 +1,62 @@
 *{
     box-sizing: border-box;
+    background-color: #202124;
+    color: #E3E3E3;
 }
 
 .header{
     display: flex;
+    padding: .5em;
+    margin-bottom: 10px;
 }
-
-.end-game{
+/* pushes timer to far right of title bar */
+h1{
     margin-right: auto;
+    font-size: 1.75em;
 }
-
-#start-again{
-    
-}
-
-.start-again{
-
-}
-
 
 #time-left{
-    
+    font-size: 1.5em;
+    margin-right: 1.0em;
 }
 
-/* overall holding div for each portion of quiz */
-.quiz-area{
+div{
+    display: flex;
+    font-size: 1.25em;
+}
+
+#quiz-area{
     display: flex;
     justify-content: center;
 }
 
-/* Individual box for each section of quiz to make hiding easier */
-.quiz-box-start{
-    text-align: center;
-    width: 66%;
-    height: 66vh;
-    background-color: aqua;
+button{
+    background-color: #BB86FC;
+    font-size: 1.5rem;
+    color: #202124;
+    padding: 5px;
+    margin: 5px;
+    translate: -5px;
 }
 
-/*
-These are the divs for the questions portion
-And the ending portion
-they are hidden by default and appear on respective click events, 
-or when the test end */
-.quiz-box-questions, .quiz-box-end{
+/* visible until user starts quiz */
+#quiz-box-start-page{
+    display: block;
+}
+/* hidden until needed then hidden again */
+.quiz-box-questions-page{
     display: none;
-    text-align: center;
-    width: 66%;
-    height: 66vh;
-    background-color: aqua;
+    align-items: center;
 }
-
-#start-button{
-
+#display-question{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* hidden until needed then hidden again */
+#quiz-box-end{
+    display: none;
+}
+/* hidden until needed then hidden again */
+#show-scores-page{
+    display: none;
 }

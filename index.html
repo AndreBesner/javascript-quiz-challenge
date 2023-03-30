@@ -10,46 +10,63 @@
     <title>DreB's JavaScript Quiz</title>
 </head>
 <body>
-
-    <!-- This is the top section that houses view scores and timer -->
-    <!-- This will never change -->
+    <!-- This is the top section that houses title and timer -->
     <div id="header" class="header">
-        <button id="end-game" class="end-game">
-            End Game and View Scores
-        </button>
+        <h1>
+            Andre Besner's JavaScipt Quiz
+        </h1>
         <div id="time-left" class="time-left">
             60
         </div>
     </div>
     <!-- End of top section -->
 
-
     <!-- Actual Quiz Section -->
     <div id="quiz-area" class="quiz-area">
-
         <!-- from here there will be seperate divs for each section of the quiz -->
-
         <!-- START PAGE -->
-        <div class="quiz-box-start">
+        <div id = "quiz-box-start-page" class="quiz-box-startpage">
+            <h2>This is a simple Quiz on JavaScript.
+            </h2>
+                <br>Each question you answer correct, you recieve a point.
+                <br>The clock is ticking. 
+                <br>You will be given the option to save your score at the end of the test.
+            </p>
             <button id="start-button">start</button>
         </div>
 
-
         <!-- QUESTIONS PAGE -->
-        <div class="quiz-box-questions">
-            Test
+        <div id = "quiz-box-questions-page" class="quiz-box-questions-page">
+            <div>
+                <h3 id = "display-question" class = "display-question">
+                    
+                </h3>
+                <ul id = "display-answers" class = "display-answers">
+                    
+                </ul>
+            </div> 
         </div>
-
 
         <!-- ENDING PAGE -->
-        <div class="quiz-box-end">
-            End
+        <div id="quiz-box-end" class = "quiz-box-end">
+            <h4>Thank you for taking the quiz!</h4>
+            <p id = "display-user-score"></p>
+            <h5>Enter your initials below</h5>
+            <form id="user-initials">
+                <label for = "initials">Enter your initials:</label>
+                <input type = "text" id="initials" name="initials"><br>
+                <button type = "submit">Click Me</button>
+            </form>
         </div>
 
-
+        <!-- SHOW SCORES PAGE / FINAL PAGE -->
+        <div id = "show-scores-page">
+            <h5>Initials and Scores of Previous Challengers</h5>
+            <p>Please, refresh the page to try again.</p>
+            <ul id="highscore-list"></ul>
+        </div>
     </div>
-
     <!-- End of Quiz Section -->
+    <script src="./assets/script.js"></script>
 </body>
-<script src="./assets/script.js"></script>
 </html>
